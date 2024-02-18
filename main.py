@@ -14,10 +14,13 @@ from kivy.graphics import Color
 
 class MyApp(App):
     def build(self):
-        primary_color = get_color_from_hex("#303F9F")  # Ana renk (mavi tonu)
-        secondary_color = get_color_from_hex("#FFC107")  # İkincil renk (sarının bir tonu)
+        Window.bind(on_keyboard=self.on_key_down)
+        self.bind(on_request_close=self.on_request_close)
+        self.bind(on_key_down=self.on_key_down)
 
+        primary_color = get_color_from_hex("#303F9F")  # Ana renk (mavi tonu)
         Window.clearcolor = primary_color  # Arka plan rengi
+
         main_layout = BoxLayout(orientation='vertical')
 
         title_label = Label(text="Library Management System", font_size=30, size_hint=(1, 0.1))
@@ -43,11 +46,24 @@ class MyApp(App):
         search_button.bind(on_press=self.show_search_popup)
         main_layout.add_widget(search_button)
 
-       
-
-
         return main_layout
+    def on_keyboard(self, window, key, *args):
+        if key == 113:  # ASCII code for 'q'
+            App.get_running_app().stop()
+            return True  # Override the default behavior
+        return False   
 
+    def on_request_close(self, *args):
+        # Uygulamayı kapatmadan önce yapılacak işlemler buraya yazılır
+        # Örneğin, dosyaların kaydedilmesi gibi
+        # Ardından True döndürerek uygulamanın kapanmasına izin verilir
+        return True
+
+    def on_key_down(self, window, key, *args):
+     if key == ord('q'):
+        EventLoop.close()
+        return True
+     return False
     def show_add_book_popup(self, instance):
         content = BoxLayout(orientation='vertical')
         content.add_widget(Label(text="Book Title:"))
