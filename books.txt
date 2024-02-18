@@ -1,0 +1,6 @@
+Ýnsan Ne Ýle Yaþar,Tolstoy,2016,120
+Martin Eden,Jack London,1926,332
+Gurur ve Önyargý,Jane Austen,2006,295
+Suç ve Ceza,Dostoyevski,2006,687
+Yeraltýndan Notlar,Dostoyevski,2008,487
+Dönüþüm,Franz Kafka,1900,500

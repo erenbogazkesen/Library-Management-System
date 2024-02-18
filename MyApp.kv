@@ -1,0 +1,42 @@
+<MyApp>:
+    orientation: 'vertical'
+    padding: dp(50), dp(20)
+    spacing: dp(20)
+    canvas.before:
+        Color:
+            rgba: 0.95, 0.95, 0.95, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+    Label:
+        text: "Library Management System"
+        font_size: dp(30)
+        size_hint: 1, 0.1
+        color: 0, 0, 0, 1
+
+    BoxLayout:
+        orientation: 'horizontal'
+        spacing: dp(20)
+        size_hint: 1, 0.1
+
+        Button:
+            text: "List Books"
+            font_size: dp(20)
+            background_color: (0.2, 0.5, 0.9, 1)
+            color: (1, 1, 1, 1)
+            on_press: app.show_book_list()
+
+        Button:
+            text: "Add Book"
+            font_size: dp(20)
+            background_color: (0.3, 0.6, 0.95, 1)
+            color: (1, 1, 1, 1)
+            on_press: root.show_add_book_popup()
+
+        Button:
+            text: "Remove Book"
+            font_size: dp(20)
+            background_color: (0.4, 0.7, 1, 1)
+            color: (1, 1, 1, 1)
+            on_press: root.show_remove_book_popup()
