@@ -18,8 +18,8 @@ class MyApp(App):
         self.bind(on_request_close=self.on_request_close)
         self.bind(on_key_down=self.on_key_down)
 
-        primary_color = get_color_from_hex("#303F9F")  # Ana renk (mavi tonu)
-        Window.clearcolor = primary_color  # Arka plan rengi
+        primary_color = get_color_from_hex("#303F9F")  
+        Window.clearcolor = primary_color  
 
         main_layout = BoxLayout(orientation='vertical')
 
@@ -48,15 +48,13 @@ class MyApp(App):
 
         return main_layout
     def on_keyboard(self, window, key, *args):
-        if key == 113:  # ASCII code for 'q'
+        if key == 113:  # ASCII kodu
             App.get_running_app().stop()
-            return True  # Override the default behavior
+            return True  
         return False   
 
     def on_request_close(self, *args):
-        # Uygulamayı kapatmadan önce yapılacak işlemler buraya yazılır
-        # Örneğin, dosyaların kaydedilmesi gibi
-        # Ardından True döndürerek uygulamanın kapanmasına izin verilir
+        
         return True
 
     def on_key_down(self, window, key, *args):
@@ -94,7 +92,7 @@ class MyApp(App):
         self.show_error_message("\n".join(errors))
         return
 
-    # Dosya adı ve bilgiler
+    
      dosya_adi = "books.txt"
      bilgiler = [title, author, release_year, num_pages]
 
@@ -136,15 +134,15 @@ class MyApp(App):
     def validate_input(self, title, author, release_year, num_pages):
         errors = []
 
-        # Kitap adı kontrolü: Boş olmamalı
+       
         if not title:
             errors.append("Kitap adı boş bırakılamaz.")
 
-        # Yazar adı kontrolü: Boş olmamalı
+       
         if not author:
             errors.append("Yazar adı boş bırakılamaz.")
 
-        # Yayın yılı kontrolü: Dört rakamdan oluşmalı
+        
         if not release_year.isdigit() or len(release_year) != 4:
             errors.append("Yayın yılı dört rakamdan oluşmalıdır.")
 
@@ -171,7 +169,7 @@ class MyApp(App):
      print(f"Editing book: {title}") 
      
 
-    # Burada kitap düzenleme işlemleri yapılabilir
+    
      book_title = title.strip()
 
      if not book_title:
